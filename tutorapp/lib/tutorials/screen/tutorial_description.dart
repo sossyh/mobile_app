@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tutorapp/tutorial_model.dart';
-import 'tutorial_model.dart';
+import 'package:tutorapp/tutorials/screen/categories.dart';
+import '../Model/tutorial_model.dart';
 
 class tutorial_description extends StatefulWidget {
   tutorials tutorial;

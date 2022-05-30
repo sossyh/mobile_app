@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'tutorial_model.dart';
+import '../Model/tutorial_model.dart';
 import 'tutorial_description.dart';
 
 class category extends StatefulWidget {
