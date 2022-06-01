@@ -13,7 +13,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(10.0),
         child: Form(
           key: formKey,
           child: Column(
@@ -27,13 +27,13 @@ class LoginScreen extends StatelessWidget {
                 ),
                 validator: (String? email) {
                   if (email == null || email.isEmpty) {
-                    return "Email must not be empty";
+                    return "please enter your Email account";
                   }
 
                   final validEmail = RegExp("[A-Za-z]@[A-Za-z].[A-Za-z]");
-                  final correct = validEmail.hasMatch(email);
+                  final correct_email = validEmail.hasMatch(email);
 
-                  return correct ? null : "Enter a valid email";
+                  return correct_email ? null : "Enter a valid email";
                 },
               ),
               SizedBox(height: 10),
@@ -46,11 +46,13 @@ class LoginScreen extends StatelessWidget {
                 ),
                 validator: (String? password) {
                   if (password == null || password.isEmpty) {
-                    return "Password must not be empty";
+                    return "Please enter password";
                   }
 
                   final validPassword = password.length >= 8;
-                  return validPassword ? null : "Password too short";
+                  return validPassword
+                      ? null
+                      : "Password must be between 8 and 16 characters";
                 },
               ),
               SizedBox(height: 10),
@@ -102,6 +104,21 @@ class LoginScreen extends StatelessWidget {
                   );
                 },
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: 40,
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Container(
+                    child: ElevatedButton(
+                        onPressed: () {}, child: const Text("Register")),
+                  )
+                ],
+              )
             ],
           ),
         ),
