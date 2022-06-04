@@ -1,11 +1,27 @@
 part of 'comment_bloc.dart';
 
-abstract class CommentState {}
+abstract class Comment_State extends Equatable {
+  const Comment_State();
 
-class Idle extends CommentState {}
+  @override
+  List<Object> get props => [];
+}
 
-class Comment extends CommentState {}
+class CommentLoading extends Comment_State {}
 
-class CommentSuccessful extends CommentState {}
+class Comment_Operation_Success extends Comment_State {
+  final Iterable<Comment> comments;
 
-class CommentFailed extends CommentState {}
+  const Comment_Operation_Success([this.comments = const []]);
+
+  @override
+  List<Object> get props => [];
+}
+
+class Comment_Operation_Failure extends Comment_State {
+  final Object error;
+
+  const Comment_Operation_Failure(this.error);
+  @override
+  List<Object> get props => [error];
+}
