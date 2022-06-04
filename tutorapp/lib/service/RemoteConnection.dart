@@ -1,6 +1,5 @@
 import 'package:tutorapp/tutorials/Model/tutorial_model.dart';
 
-
 import 'package:http/http.dart' as http;
 import 'package:tutorapp/tutorials/Model/tutorial_model.dart';
 
