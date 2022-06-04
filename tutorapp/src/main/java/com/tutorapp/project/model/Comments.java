@@ -19,7 +19,8 @@ import lombok.NoArgsConstructor;
 public class Comments {
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    private Long id; //this id is for database persistance 
+    private int Id; //the id from ui
 
     private String Text;
     @ManyToOne

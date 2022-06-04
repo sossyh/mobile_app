@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tutorapp/authentication/authentication.dart';
-import 'package:tutorapp/tutorials/screen/tutorials_add_update.dart';
+import 'package:tutorapp/tutorials/screen/Admin.dart';
+// import 'package:tutorapp/tutorials/screen/tutorials_add_update.dart';
 import '../tutorials.dart';
 
 //import 'course_add_update.dart';

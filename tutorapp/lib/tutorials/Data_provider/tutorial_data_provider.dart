@@ -6,7 +6,7 @@ import 'package:tutorapp/tutorials/Model/tutorial_model.dart';
 import '../tutorials.dart';
 
 class TutorialDataProvider {
-  static const String _baseUrl = "http://10.0.2.2:9191/api/v1/tutorials";
+  static const String _baseUrl = "http://10.0.2.2:8080/api/v1/tutorials";
 
   Future<Tutorial> create(Tutorial tutorial) async {
     final http.Response response = await http.post(Uri.parse(_baseUrl),

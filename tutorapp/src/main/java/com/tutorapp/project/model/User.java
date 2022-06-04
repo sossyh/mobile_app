@@ -70,4 +70,13 @@ this.email = email;
 this.password = password;
 }
 
+
+
+
+
+
+    public boolean existsById(Long id2) {
+        return false;
+    }
+
 }

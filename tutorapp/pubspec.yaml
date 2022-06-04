@@ -39,9 +39,10 @@ dependencies:
   path_stack: ^0.2.0+1
   equatable: ^2.0.3
   http: ^0.13.4
-  test: ^1.21.1
+  
   provider: ^5.0.0 
   comment_box: ^0.0.17
+  bloc_test: ^8.5.0
   # http: <newest_version>
   
 
