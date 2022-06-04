@@ -8,31 +8,18 @@ import 'package:go_router/go_router.dart';
 
 void main() {
   //final TutorialDataProvider tutorialDataProvider;
+  
   Tutorial tutorial;
   TutorialRepositoy? tutorialRepository;
   tutorialRepository?.create(Tutorial(id: 1, code: "123", title: "mobileapp"));
 
-  runApp(TutorApp()
-      // MultiBlocProvider(
-      //   providers: [
-      //     BlocProvider<AuthBloc>(create: (BuildContext context) => AuthBloc()),
-      //     BlocProvider<RegistrationBloc>(
-      //         create: (BuildContext context) => RegistrationBloc()),
-      //     //BlocProvider<CommentBloc>(create: (BuildContext context) => CommentBloc()),
-      //     // BlocProvider<TutorialBloc>(
-      //     //   create: (BuildContext context) =>
-      //     //       TutorialBloc(tutorialRepository: tutorialRepository),
-      //     // )
-      //   ],
-      //   child: TutorApp(),
-      // ),
-      );
+  runApp(TutorApp());
 }
 
 class TutorApp extends StatelessWidget {
   late final TutorialRepositoy tutorialRepositoy;
   late final Tutorial tutorial;
-
+  late final TutorialArgument args;
   Widget build(BuildContext context) {
     final GoRouter _router = GoRouter(
       initialLocation: '/LoginScreen',
@@ -60,6 +47,18 @@ class TutorApp extends StatelessWidget {
                 )
             //Tutorial_description(tutorial: tutorial),
             ),
+            GoRoute(
+          path: '/Admin',
+          builder: (BuildContext context, GoRouterState state) => Admin(args: args),
+        ),
+        GoRoute(
+          path: '/TutorPage',
+          builder: (BuildContext context, GoRouterState state) => TutorPage(),
+        ),
+        GoRoute(
+          path: '/Comment_form',
+          builder: (BuildContext context, GoRouterState state) => Comment_form(),
+        ),
       ],
     );
 

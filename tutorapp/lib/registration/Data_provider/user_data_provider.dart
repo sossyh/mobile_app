@@ -7,7 +7,7 @@ import 'package:tutorapp/tutorials/Model/tutorial_model.dart';
 import '../registration.dart';
 
 class UserDataProvider {
-  static const String _baseUrl = "http://10.0.2.2:9191/api/v1/registration";
+  static const String _baseUrl = "http://10.0.2.2:8080/api/v1/auth";
 
   Future<User> create(User user) async {
     final http.Response response = await http.post(Uri.parse(_baseUrl),
@@ -68,7 +68,7 @@ class UserDataProvider {
   Future<void> delete(int id) async {
     final response = await http.delete(Uri.parse("$_baseUrl/$id"));
     if (response.statusCode != 204) {
-      throw Exception("Field to delete the user");
+      throw Exception("Failed to delete the user");
     }
   }
 }

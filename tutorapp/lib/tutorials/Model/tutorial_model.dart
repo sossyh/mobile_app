@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 //   "assets/mobile.jpg",
 //   "assets/astronomy.jpg",
 
-// List<Tutorial> tutorialsFromJson(String str) => List<Tutorial>.from(json.decode(str).map((x) => Tutorial.fromJson(x)));
+List<Tutorial> tutorialsFromJson(String str) => List<Tutorial>.from(json.decode(str).map((x) => Tutorial.fromJson(x)));
 
-// String tutorialToJson(List<Tutorial> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+ String tutorialToJson(List<Tutorial> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 // final tutorial_category = [
 //   tutorials(image:"assets/backend.jpg", title:"BACKEND DEVELOPEMENT",
@@ -23,7 +23,7 @@ import 'package:flutter/material.dart';
 // ];
 
 class Tutorial {
-  final int? id;
+  final int id;
   final String code;
   final String title;
   //final String? image;
@@ -44,4 +44,11 @@ class Tutorial {
         title: json['title'],
         description: json['description']);
   }
+Map<String, dynamic> toJson() => {
+        "code": code,
+        
+        "title": title,
+        "description":description ,
+      };
+  
 }

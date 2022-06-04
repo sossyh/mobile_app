@@ -25,3 +25,28 @@ class Comment_Operation_Failure extends Comment_State {
   @override
   List<Object> get props => [error];
 }
+<<<<<<< HEAD
+List filedata = [
+    {
+      'name': 'Mr. Xi',
+      'pic': 'https://picsum.photos/300/30',
+      'message': 'GOOD JOB'
+    },
+    {
+      'name': 'Mr y',
+      'pic': 'https://picsum.photos/300/30',
+      'message': ' cool'
+    },
+    {
+      'name': 'Mr. Z',
+      'pic': 'https://picsum.photos/300/30',
+      'message': 'nice'
+    },
+    {
+      'name': 'Mr. xyz',
+      'pic': 'https://picsum.photos/300/30',
+      'message': 'good job'
+    },
+  ];
+=======
+>>>>>>> 3ac98e82d5f757244aea54c4d755e80369b0a6d5

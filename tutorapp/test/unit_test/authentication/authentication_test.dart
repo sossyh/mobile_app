@@ -7,22 +7,22 @@ void main() {
   test('', () {});
 
   test('empty email not allowed', () {
-    var result = EmailValidator.validate('');
+    var result = email_validator.validate('');
     expect(result, 'empty email not allowed');
   });
 
   test('empty email not allowed', () {
-    var result = EmailValidator.validate('email');
+    var result = email_validator.validate('email');
     expect(result, null);
   });
 
   test('empty password not allowed', () {
-    var result = PasswordValidator.validate('');
+    var result = password_validator.validate('');
     expect(result, 'empty email not allowed');
   });
 
   test('empty password not allowed', () {
-    var result = PasswordValidator.validate('password');
+    var result = password_validator.validate('password');
     expect(result, null);
   });
 }

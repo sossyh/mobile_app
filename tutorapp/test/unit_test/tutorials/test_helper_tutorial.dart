@@ -11,13 +11,13 @@ class MockTutorial extends Mock implements Tutorial, http.Client {}
 
 class Service extends Mock implements TutorialRepositoy {}
 
-class EmailValidator {
+class email_validator {
   static validate(value) {
     return value.isEmpty ? 'empty email is not allowed' : null;
   }
 }
 
-class PasswordValidator {
+class password_validator {
   static validate(value) {
     return value.isEmpty ? 'empty password is not allowed' : null;
   }

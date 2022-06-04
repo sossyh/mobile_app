@@ -9,7 +9,7 @@ abstract class RegistrationState extends Equatable {
 
 class UserLoading extends RegistrationState {}
 
-class Registration extends RegistrationState {}
+// class Registration extends RegistrationState {}
 
 class User_Registration_Success extends RegistrationState {
   final Iterable<User> users;

@@ -22,13 +22,16 @@ public class tutorials {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
+    private int ID;
     private Date addedAt;
-    private String image;
+    private String code;
     private String title;
     private String description;
     @ManyToOne
     private User tutor;
-    
+    public void setTitle(String newTitle){
+        this.title=newTitle;
+    }
    
     @PrePersist
     void addedAt(){

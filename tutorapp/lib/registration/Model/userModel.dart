@@ -20,4 +20,5 @@ class User {
         email: json['email'],
         password: json['password']);
   }
+  
 }
