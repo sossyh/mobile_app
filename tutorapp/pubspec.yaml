@@ -43,6 +43,7 @@ dependencies:
   provider: ^5.0.0 
   comment_box: ^0.0.17
   bloc_test: ^8.5.0
+  integration_test: ^0.8.1
   # http: <newest_version>
   
 
