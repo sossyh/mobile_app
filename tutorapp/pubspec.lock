@@ -154,7 +154,11 @@ packages:
       name: dart_style
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "2.2.1"
+=======
+    version: "2.2.3"
+>>>>>>> 3ac98e82d5f757244aea54c4d755e80369b0a6d5
   diff_match_patch:
     dependency: transitive
     description:
