@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:go_router/go_router.dart';
 import 'package:tutorapp/authentication/authentication.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -69,16 +69,20 @@ class LoginScreen extends StatelessWidget {
                   );
                 },
                 builder: (_, AuthState state) {
-                  Widget buttonChild = Text("Log in");
-
+                  Widget buttonChild = ElevatedButton(
+                    onPressed: () {
+                      context.go('/category');
+                    },
+                    child: Text("Log In"),
+                  );
                   if (state is LogingIn) {
-                    buttonChild = SizedBox(
-                      height: 10,
-                      width: 10,
-                      child: CircularProgressIndicator(
-                        color: Colors.white,
-                      ),
-                    );
+                    //
+                    // buttonChild = ElevatedButton(
+                    //   onPressed: () {
+                    context.push('/category');
+                    //   },
+                    //   child: Text("Log In"),
+                    // );
                   }
 
                   if (state is LoginSuccessful) {
@@ -115,7 +119,10 @@ class LoginScreen extends StatelessWidget {
                   ),
                   Container(
                     child: ElevatedButton(
-                        onPressed: () {}, child: const Text("Register")),
+                        onPressed: () {
+                          context.push('/Registration_form');
+                        },
+                        child: const Text("Register")),
                   )
                 ],
               )

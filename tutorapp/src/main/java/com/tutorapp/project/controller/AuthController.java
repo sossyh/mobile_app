@@ -29,11 +29,15 @@ import com.tutorapp.project.model.UserDetail;
 import com.tutorapp.project.repository.RoleRepository;
 import com.tutorapp.project.repository.UserRepository;
 import com.tutorapp.project.utils.JwtUtils;
+
+
+
 import com.tutorapp.project.utils.JwtResponse;
 
 @CrossOrigin(value = "*")
 @RestController
 @RequestMapping("/api/v1/auth")
+
 public class AuthController {
 	
 	@Autowired

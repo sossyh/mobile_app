@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'TutorialsBloc.dart';
+import '../tutorials.dart';
 
 class TutorPage extends StatefulWidget {
   @override
