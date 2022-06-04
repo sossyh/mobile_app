@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 
 import lombok.AllArgsConstructor;
@@ -25,6 +26,9 @@ public class tutorials {
     private String image;
     private String title;
     private String description;
+    @ManyToOne
+    private User tutor;
+    
    
     @PrePersist
     void addedAt(){

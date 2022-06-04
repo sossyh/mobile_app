@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../tutorials.dart';
 
+import '/tutorials/BLoC/TutorialsBloc.dart';
+
 class TutorPage extends StatefulWidget {
   @override
   _TutorPageState createState() => _TutorPageState();
