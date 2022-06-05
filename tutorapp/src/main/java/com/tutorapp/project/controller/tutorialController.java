@@ -2,12 +2,16 @@ package com.tutorapp.project.controller;
 
 import java.util.Optional;
 
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
+import org.springframework.dao.EmptyResultDataAccessException;
+// import org.springframework.data.domain.PageRequest;
+// import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 // import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,19 +27,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(path="/api/v1/tutorials",produces="application/json")
-// @CrossOrigin(origins="*")
+@CrossOrigin(origins="*")
 public class tutorialController{
     
     private final tutorialRepository tutRepo;
-    @GetMapping(params="new")
-    public Iterable<tutorials>newTutorials(){
-        PageRequest page=PageRequest.of(0, 8,Sort.by ( "addedAt").descending());
-        return tutRepo.findAll(page).getContent();
+    @GetMapping()
+    public ResponseEntity<Iterable<tutorials>> fetchAll(){
+        
+        Iterable<tutorials> allTutorials=tutRepo.findAll();
+        return ResponseEntity.status(HttpStatus.OK).body(allTutorials);
         
     }
-    @GetMapping("/{title}")
-    public ResponseEntity<tutorials>TutorialByTitle(@PathVariable("title")String title){
-        Optional<tutorials> tutorial=tutRepo.findByTitle(title);
+    @GetMapping("/{code}")
+    
+    public ResponseEntity<tutorials> findtutorialByCode(@PathVariable("code")String code){
+        Optional<tutorials> tutorial=tutRepo.findTutorialByCode(code);
         if (tutorial.isPresent()){
             return new ResponseEntity<>(tutorial.get(),HttpStatus.OK);
         }
@@ -43,11 +49,32 @@ public class tutorialController{
     }
     @PostMapping(consumes="application/json")
     @ResponseStatus(HttpStatus.CREATED)
-    public tutorials postTutorial(@RequestBody tutorials tutorial) {
+    public ResponseEntity<tutorials> createTutorial(@RequestBody tutorials tutorial) {
        
         
-        return tutRepo.save(tutorial);
+        return ResponseEntity.status(HttpStatus.CREATED).body(tutRepo.save(tutorial));
     }
-    
-    
+    @PatchMapping(path="/{id}",consumes="application/json")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<tutorials>  updateTutorialbyID(@PathVariable("id") int id,tutorials NewTutorial){
+        
+        tutorials tutorial=tutRepo.findTutorialByid(id);
+                tutorial.setCode(NewTutorial.getCode());
+                tutorial.setTitle(NewTutorial.getTitle());
+                tutorial.setDescription(NewTutorial.getDescription());
+                tutRepo.save(tutorial);
+                return ResponseEntity.status(HttpStatus.OK).body(tutorial);}
+                       
+    @DeleteMapping(path="/{id}",consumes="application/json")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public ResponseEntity<?> deleteTutorial(@PathVariable("id") int id){
+    try{
+        tutRepo.deleteTutorialbyId(id);
+    return ResponseEntity.status(HttpStatus.OK).body(null);}
+        catch(EmptyResultDataAccessException e){
+
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
+        
+    }    
 }

@@ -2,14 +2,14 @@ package com.tutorapp.project.utils;
 
 import java.util.Date;
 
-// import org.apache.catalina.authenticator.SpnegoAuthenticator.AuthenticateAction;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-// import com.example.food.model.UserDetail;
+
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -25,7 +25,7 @@ public class JwtUtils {
 
 	private String jwtSecret = "secret";
 
-	private int jwtExpirationMs = 3600000;
+	private int jwtExpirationMs = 600000;
 
 	public String generateJwtToken(Authentication authentication) {
 

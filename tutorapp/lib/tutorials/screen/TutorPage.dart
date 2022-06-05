@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../tutorials.dart';
 
 import '/tutorials/BLoC/TutorialsBloc.dart';
 
