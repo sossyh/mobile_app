@@ -139,39 +139,6 @@ public class AuthController {
 		return ResponseEntity.ok(("User registered successfully!"));
 		
 	}
-@PostMapping()
-@ResponseStatus(HttpStatus.OK)
-public ResponseEntity<User> createNewUser(@RequestBody User user){
-	
-		User newUser=new User();
-		newUser.setUsername(user.getUsername());
-		newUser.setEmail(user.getEmail());
-		newUser.setRoles(user.getRoles());
-		userRepository.save(newUser);
-		return ResponseEntity.status(HttpStatus.OK).body(newUser);}	
-@GetMapping("/{username}")
-@ResponseStatus(HttpStatus.OK)
-public ResponseEntity<User> fetchThisUser(@PathVariable("username" )String username , @RequestBody User user){
-Optional <User> the_user=userRepository.findById(user.getId());
-return ResponseEntity.status(HttpStatus.OK).body(the_user.get());}
- 
- @PatchMapping(path="/{id}",consumes="application/json")
- public ResponseEntity<User> updateUser(@PathVariable("id")int id,@RequestBody User user)
- {
-
-		 User newUser=new User();
-		 newUser.setEmail(user.getEmail());
-		 newUser.setUsername(user.getUsername());
-		 newUser.setId(user.getId());
-		 newUser.setRoles(user.getRoles());
-		 userRepository.save(newUser);
-
-		 return ResponseEntity.status(HttpStatus.OK).body(newUser);}
-@DeleteMapping(path="/{id}",consumes="application/json")
-	public ResponseEntity<?>deleteUserbyId(@PathVariable("id")int id){
-		userRepository.deleteUserbyId(id);
-		return ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
-	}
 
 }
 

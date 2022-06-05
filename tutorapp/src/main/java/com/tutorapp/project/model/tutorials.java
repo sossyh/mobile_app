@@ -6,10 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-<<<<<<< HEAD
 import javax.persistence.JoinColumn;
-=======
->>>>>>> c0375d8fe96116d9d33288139679cc4b8116eb6b
 import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 
@@ -27,12 +24,8 @@ public class tutorials {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-<<<<<<< HEAD
-    @JoinColumn( name="ID",referencedColumnName="ID",updatable=false,insertable=false)
-    private int The_id;
-=======
-    private int ID;
->>>>>>> c0375d8fe96116d9d33288139679cc4b8116eb6b
+    // @JoinColumn( name="ID",referencedColumnName="ID",updatable=false,insertable=false)
+    // private int The_id;
     private Date addedAt;
     private String code;
     private String title;
