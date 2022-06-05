@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 // import javax.persistence.OneToOne;
 
@@ -19,7 +20,10 @@ import lombok.NoArgsConstructor;
 public class Comments {
 @Id
 @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
+    private Long id; 
+    //this id is for database persistance 
+    @JoinColumn( name="ID",referencedColumnName="ID",updatable=false,insertable=false)
+    private int Id; //the id from ui
 
     private String Text;
     @ManyToOne

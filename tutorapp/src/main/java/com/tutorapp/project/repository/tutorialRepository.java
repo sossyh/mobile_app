@@ -14,5 +14,14 @@ public  interface tutorialRepository extends JpaRepository<tutorials,Long> {
 @Query(value="SELECT * FROM tutorials WHERE title LIKE %:title%",nativeQuery=true)
 List<tutorials> findAllTitle(@Param("title")String title);
 @Query(value="SELECT * FROM tutorials WHERE ^title$ ",nativeQuery = true)
- Optional<tutorials>findByTitle(@Param("title")String title);   
+ Optional<tutorials>findByTitle(@Param("title")String title);
+ @Query(value="SELECT * FROM tutorials WHERE ^code$",nativeQuery=true)
+ Optional<tutorials> findTutorialByCode(@Param("code")String code);
+ 
+@Query(value="DELETE FROM tutorials WHERE ^code$ ",nativeQuery=true)
+ void deleteTutorialbyCode(@Param("code")String code);
+ @Query(value="SELECT  * FROM tutorials WHERE ID=id",nativeQuery=true)
+tutorials findTutorialByid(@Param("id")int id);
+@Query(value="DELETE * FROM tutorials WHERE ID=id",nativeQuery=true)
+void deleteTutorialbyId(@Param("id")int id);   
 }

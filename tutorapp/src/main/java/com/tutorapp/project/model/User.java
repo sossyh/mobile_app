@@ -52,7 +52,11 @@ public class  User {
     private Set<Role>roles=new HashSet<>();
     @OneToMany(mappedBy = "user")
     private Collection<Comments>comments_made;
-        
+    @OneToMany
+     private Collection<tutorials>enroled_tutorials; 
+     @OneToMany
+     private Collection<tutorials>created_tutorials; 
+
     
     
     
