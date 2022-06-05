@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tutorapp/authentication/authentication.dart';
 import 'package:tutorapp/tutorials/screen/Admin.dart';
-// import 'package:tutorapp/tutorials/screen/tutorials_add_update.dart';
 import '../tutorials.dart';
 
 //import 'course_add_update.dart';
@@ -12,10 +11,10 @@ class TutorAppRoute {
       return MaterialPageRoute(builder: (context) => LoginScreen());
     }
 
-    if (settings.name == AddUpdateTutorial.routeName) {
+    if (settings.name == Admin.routeName) {
       TutorialArgument args = settings.arguments as TutorialArgument;
       return MaterialPageRoute(
-        builder: (context) => AddUpdateTutorial(
+        builder: (context) => Admin(
           args: args,
         ),
       );

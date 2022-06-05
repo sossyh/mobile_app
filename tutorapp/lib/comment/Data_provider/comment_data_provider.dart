@@ -6,11 +6,8 @@ import 'package:tutorapp/registration/Model/userModel.dart';
 import 'package:tutorapp/tutorials/Model/tutorial_model.dart';
 
 class CommentDataProvider {
-<<<<<<< HEAD
   static const String _baseUrl = "http://10.0.2.2:8080/api/v1/comment";
-=======
-  static const String _baseUrl = "http://10.0.2.2:9191/api/v1/comment";
->>>>>>> 3ac98e82d5f757244aea54c4d755e80369b0a6d5
+  // static const String _baseUrl = "http://10.0.2.2:9191/api/v1/comment";
 
   Future<Comment> create(Comment comment) async {
     final http.Response response = await http.post(Uri.parse(_baseUrl),

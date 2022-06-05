@@ -166,7 +166,7 @@ class Registration_form extends StatelessWidget {
                           Widget buttonChild = Text("Sign Up");
 
                           // if (state is Registration) {
-                             
+
                           //      SizedBox(
                           //       height: 10,
                           //       width: 10,
@@ -174,14 +174,13 @@ class Registration_form extends StatelessWidget {
                           //         color: Colors.white,
                           //       ),
                           //     );}
-                            
-                            //  buttonChild = ElevatedButton(
-                            //   onPressed: () {
-                            //     context.push('/LoginScreen');
-                            //   },
-                            //   child: Text("Log In"),
-                            // );}
-                          
+
+                          //  buttonChild = ElevatedButton(
+                          //   onPressed: () {
+                          //     context.push('/LoginScreen');
+                          //   },
+                          //   child: Text("Log In"),
+                          // );}
 
                           if (state is User_Registration_Failure) {
                             return const Text("The registration is not done");
@@ -197,7 +196,8 @@ class Registration_form extends StatelessWidget {
 
                           return ElevatedButton(
                             onPressed: () {
-                              final formValid = formKey.currentState!.validate();
+                              final formValid =
+                                  formKey.currentState!.validate();
                               if (!formValid) return;
 
                               final regBloc =
