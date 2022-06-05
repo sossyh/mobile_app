@@ -17,7 +17,8 @@ class Register extends Registration_Event {
       required this.password,
       required this.fullname,
       required this.confirm_password,
-      required this.username});
+      required this.username}
+      );
   @override
   List<Object> get props => [];
 }

@@ -7,5 +7,3 @@ export 'Data_provider/tutorial_data_provider.dart';
 export 'screen/routes.dart';
 export 'BLoC/Block.dart';
 export 'BLoC/TutorialsBloc.dart';
-export 'screen/Admin.dart';
-export 'screen/TutorPage.dart';

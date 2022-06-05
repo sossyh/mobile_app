@@ -1,13 +1,16 @@
 import 'dart:convert';
-
+import 'dart:core';
+import'package:tutorapp/comment/BLoC/comment_bloc.dart';
 import 'package:http/http.dart' as http;
 import '../comment.dart';
 import 'package:tutorapp/registration/Model/userModel.dart';
 import 'package:tutorapp/tutorials/Model/tutorial_model.dart';
 
 class CommentDataProvider {
+// <<<<<<< HEAD
   static const String _baseUrl = "http://10.0.2.2:8080/api/v1/comment";
-  // static const String _baseUrl = "http://10.0.2.2:9191/api/v1/comment";
+  static const String _baseUrl1= "http://10.0.2.2:9191/api/v1/comment";
+// >>>>>>> 3ac98e82d5f757244aea54c4d755e80369b0a6d5
 
   Future<Comment> create(Comment comment) async {
     final http.Response response = await http.post(Uri.parse(_baseUrl),
@@ -35,7 +38,7 @@ class CommentDataProvider {
     }
   }
 
-  Future<List<Comment>> fetchAll() async {
+  Future <List<Comment>> fetchAll() async {
     final response = await http.get(Uri.parse(_baseUrl));
     if (response.statusCode == 200) {
       final comments = jsonDecode(response.body) as List;

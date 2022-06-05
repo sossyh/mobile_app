@@ -115,11 +115,7 @@ class _AddUpdateTutorialState extends State<AddUpdateTutorial> {
                           ? Tutorilal_Update(
                               widget.args.tutorial?.id ?? 0,
                               Tutorial(
-<<<<<<< HEAD
                                 id: widget.args.tutorial!.id,
-=======
-                                id: widget.args.tutorial?.id,
->>>>>>> 3ac98e82d5f757244aea54c4d755e80369b0a6d5
                                 code: _tutorial["code"],
                                 title: _tutorial["title"],
                                 description: _tutorial["description"],
@@ -127,11 +123,7 @@ class _AddUpdateTutorialState extends State<AddUpdateTutorial> {
                             )
                           : Tutorial_Create(
                               Tutorial(
-<<<<<<< HEAD
                                 id: _tutorial["id"],
-=======
-                                id: null,
->>>>>>> 3ac98e82d5f757244aea54c4d755e80369b0a6d5
                                 code: _tutorial["code"],
                                 title: _tutorial["title"],
                                 description: _tutorial["description"],

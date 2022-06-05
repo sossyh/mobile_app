@@ -1,118 +1,238 @@
+import 'dart:core';
+//import 'dart:ffi';
+import 'package:tutorapp/comment/BLoC/comment_bloc.dart';
+import 'package:comment_box/comment/comment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-// import 'package:tutorapp/registration/registration.dart';
-import '../comment.dart';
-import 'package:comment_box/comment/comment.dart';
+// <<<<<<< HEAD
+import 'package:tutorapp/comment/BLoC/comment_bloc.dart';
+// import '../Bloc/comment_bloc.dart';
 
-class comment_form extends StatefulWidget {
-  comment_form({Key? key}) : super(key: key);
+
+
+class Comment_form extends StatefulWidget {
+  Comment_form({Key? key}) : super(key: key);
 
   @override
-  State<comment_form> createState() => _comment_formState();
+  State<Comment_form> createState() => _Comment_formState();
 }
 
-class _comment_formState extends State<comment_form> {
+class _Comment_formState extends State<Comment_form> {
   final formKey = GlobalKey<FormState>();
 
-  final Idcontroller = TextEditingController();
+  final messageController = TextEditingController();
 
-  final textcontroller = TextEditingController();
+  final TextEditingController commentController = TextEditingController();
 
-  final CommentRepository commentRepository =
-      CommentRepository(CommentDataProvider());
+  final passController = TextEditingController();
+
+   @override  //was commented 
+  Widget commentChild(data) {
+    return ListView(
+      children: [
+        for (var i = 0; i < data.length; i++)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(2.0, 8.0, 2.0, 0.0),
+            child: ListTile(
+              leading: GestureDetector(
+                onTap: () async {
+                  // Display the image in large form.
+                  print("Comment seen");
+                },
+                child: Container(
+                  height: 50.0,
+                  width: 50.0,
+                  decoration: new BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: new BorderRadius.all(Radius.circular(50))),
+                  child: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: NetworkImage(data[i]['pic'] + "$i")),
+                ),
+              ),
+              title: Text(
+                data[i]['name'],
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(data[i]['message']),
+            ),
+          )
+      ],
+    );
+    }
+    
+  //  List<dynamic> filedata =  [
+     var filedata =  [
+    {
+      'name': 'Mr. Xi',
+      'pic': 'https://picsum.photos/300/30',
+      'message': 'GOOD JOB'
+    },
+    {
+      'name': 'Mr y',
+      'pic': 'https://picsum.photos/300/30',
+      'message': ' cool'
+    },
+    {
+      'name': 'Mr. Z',
+      'pic': 'https://picsum.photos/300/30',
+      'message': 'nice'
+    },
+    {
+      'name': 'Mr. xyz',
+      'pic': 'https://picsum.photos/300/30',
+      'message': 'good job'
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return RepositoryProvider.value(
-        value: this.commentRepository,
-        child: BlocProvider(
-          create: (_) => CommentBloc(commentRepository: this.commentRepository)
-            ..add(comment_Load()),
-          child: Scaffold(
-            appBar: AppBar(
-              title: Text("Comment Page"),
-              centerTitle: true,
-              flexibleSpace: Container(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage('mobile.jpg'), fit: BoxFit.fill)),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Comment Page"),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('img11.jpg'), fit: BoxFit.fill)),
+        ),
+        elevation: 0,
+        toolbarHeight: 100.0,
+        backgroundColor: Colors.black12,
+      ),
+      body: Container(
+        child: CommentBox(
+          userImage:
+              "https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400",
+          child: commentChild(filedata),
+          labelText: 'Write a comment...',
+          withBorder: false,
+          errorText: 'Comment cannot be blank',
+          sendButtonMethod: () {
+            if (formKey.currentState!.validate()) {
+              print(commentController.text);
+              setState(() {
+                var value = {
+                  'name': 'New user',
+                  'pic':
+                      'https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400',
+                  'message': commentController.text
+                };
+                filedata.insert(0, value);
+              });
+              commentController.clear();
+              } } 
+        )
+         ) 
+         );
+          } } 
+
+
+
+// import '../Bloc/comment_bloc.dart';
+
+
+class Comment_form1  extends StatefulWidget {
+  Comment_form1({Key? key}) : super(key: key);
+
+  @override
+  State<Comment_form1> createState() => _Comment_form1State();
+}
+
+class _Comment_form1State extends State<Comment_form1> {
+  final formKey = GlobalKey<FormState>();
+
+  final messageController = TextEditingController();
+
+  final TextEditingController commentController = TextEditingController();
+
+  final passController = TextEditingController();
+
+  // @override
+  Widget commentChild(data) {
+    return ListView(
+      children: [
+        for (var i = 0; i < data.length; i++)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(2.0, 8.0, 2.0, 0.0),
+            child: ListTile(
+              leading: GestureDetector(
+                onTap: () async {
+                  // Display the image in large form.
+                  print("Comment seen");
+                },
+                child: Container(
+                  height: 50.0,
+                  width: 50.0,
+                  decoration: new BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: new BorderRadius.all(Radius.circular(50))),
+                  child: CircleAvatar(
+                      radius: 50,
+                      backgroundImage: NetworkImage(data[i]['pic'] + "$i")),
+                ),
               ),
-              elevation: 0,
-              toolbarHeight: 100.0,
-              backgroundColor: Colors.black12,
+              title: Text(
+                data[i]['name'],
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle: Text(data[i]['message']),
             ),
-            body: Container(
-                child: Row(
-              children: [
-                Spacer(),
-                CommentBox(
-                  withBorder: false,
-                  errorText: 'Comment cannot be blank',
-                  labelText: 'write a comment........',
-                  formKey: formKey,
-                  commentController: textcontroller,
-                  backgroundColor: Colors.black,
-                  textColor: Colors.white,
-                  sendWidget:
-                      Icon(Icons.send_sharp, size: 30, color: Colors.white),
-                  sendButtonMethod: () {
-                    if (formKey.currentState!.validate()) {
-                      print(textcontroller.text);
-                      setState(() {
-                        var value = {
-                          'name': 'New User',
-                          'pic':
-                              'https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400',
-                          'message': textcontroller.text
-                        };
-                        filedata.insert(0, value);
-                      });
-                      textcontroller.clear();
-                      FocusScope.of(context).unfocus();
-                    } else {
-                      print("Not validated");
-                    }
-                  },
-                ),
-                BlocBuilder<CommentBloc, Comment_State>(
-                  builder: (_, Comment_State state) {
-                    Widget buttonChild = Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
-                    );
+          )
+      ],
+    );
+  }
 
-                    if (state is Comment_Operation_Failure) {
-                      return const Text("The comment is not sent");
-                    }
-                    if (state is Comment_Operation_Success) {
-                      return buttonChild = ElevatedButton(
-                        onPressed: () {
-                          context.push('/category');
-                        },
-                        child: buttonChild,
-                      );
-                    }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Comment Page"),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('img11.jpg'), fit: BoxFit.fill)),
+        ),
+        elevation: 0,
+        toolbarHeight: 100.0,
+        backgroundColor: Colors.black12,
+      ),
+      body: Container(
+        child: CommentBox(
+          userImage:
+              "https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400",
+          child: commentChild(filedata),
+          labelText: 'Write a comment...',
+          withBorder: false,
+          errorText: 'Comment cannot be blank',
+          sendButtonMethod: () {
+            if (formKey.currentState!.validate()) {
+              print(commentController.text);
+              setState(() {
+                var value = {
+                  'name': 'New user',
+                  'pic':
+                      'https://lh3.googleusercontent.com/a-/AOh14GjRHcaendrf6gU5fPIVd8GIl1OgblrMMvGUoCBj4g=s400',
+                  'message': commentController.text
+                };
+                filedata.insert(0, value);
+              });
+              commentController.clear();
 
-                    return ElevatedButton(
-                      onPressed: () {
-                        final formValid = formKey.currentState!.validate();
-                        if (!formValid) return;
-
-                        final regBloc = BlocProvider.of<CommentBloc>(context);
-                        regBloc.add(
-                          Write_comment(
-                            text: textcontroller.text,
-                          ),
-                        );
-                      },
-                      child: buttonChild,
-                    );
-                  },
-                ),
-              ],
-            )),
-          ),
-        ));
+              FocusScope.of(context).unfocus();
+            } else {
+              print("Not validated");
+            }
+          },
+          formKey: formKey,
+          commentController: commentController,
+          backgroundColor: Colors.black,
+          textColor: Colors.white,
+          sendWidget: Icon(Icons.send_sharp, size: 30, color: Colors.white),
+        ),
+      ),
+    );
   }
 }

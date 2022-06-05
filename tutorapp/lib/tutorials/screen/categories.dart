@@ -11,7 +11,7 @@ import 'package:go_router/go_router.dart';
 class category extends StatelessWidget {
   final TutorialRepositoy tutorialRepository =
       TutorialRepositoy(TutorialDataProvider());
-      
+
   @override
   static const routeName = 'category';
   Widget build(BuildContext context) {

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import 'package:flutter/material.dart';
 import 'package:tutorapp/tutorials/screen/categories.dart';
 import '../Model/tutorial_model.dart';
@@ -103,4 +101,3 @@ class Tutorial_description extends StatelessWidget {
 //     );
 //   }
 // }
->>>>>>> c0375d8fe96116d9d33288139679cc4b8116eb6b
