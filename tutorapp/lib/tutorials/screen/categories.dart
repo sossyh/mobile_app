@@ -48,18 +48,7 @@ class category extends StatelessWidget {
                     ],
                   ),
                 ),
-                //   actions: [
-                //     IconButton(
-                //         onPressed: () {
-                //           showSearch(
-                //             context: context,
-                //             delegate: CustomSearchDelegate(),
-                //           );
-                //         },
-                //         icon: const Icon(Icons.search))
-                //   ],
-                // ),
-                //drawer: Drawer(),
+                
                 body: BlocBuilder<TutorialBloc, TutorialState>(
                   builder: (_, state) {
                     if (state is Tutorial_Operation_Failure) {
@@ -86,30 +75,3 @@ class category extends StatelessWidget {
                 ))));
   }
 }
-// ListView.builder(
-//         itemCount: tutorial_category.length,
-//         itemBuilder: (BuildContext context, int index) {
-//           final tutorial = tutorial_category[index];
-//           return GestureDetector(
-//               onTap: () {
-//                 Navigator.push(
-//                   context,
-//                   MaterialPageRoute(
-//                     builder: (BuildContext context) {
-//                       return tutorial_description(tutorial);
-//                     },
-//                   ),
-//                 );
-//               },
-//               child: Column(
-//                 children: [
-//                   Card(
-//                     elevation: 10,
-//                     child: Column(
-//                       children: [
-//                         Image.asset(
-//                           tutorial.image,
-//                           height: 150,
-//                           width: double.infinity,
-//                           fit: BoxFit.cover,
-//                         ),

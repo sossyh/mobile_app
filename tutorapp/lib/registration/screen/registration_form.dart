@@ -154,14 +154,7 @@ class Registration_form extends StatelessWidget {
                           }),
                       SizedBox(height: 10),
                       BlocBuilder<RegistrationBloc, RegistrationState>(
-                        // listener: (_, UserState state) {
-                        //   Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //       builder: (_) => Registration_form(),
-                        //     ),
-                        //   );
-                        // },
+                        
                         builder: (_, RegistrationState state) {
                           Widget buttonChild = Text("Sign Up");
 
@@ -175,17 +168,7 @@ class Registration_form extends StatelessWidget {
                                 ),
                               );}
                             
-                            //  buttonChild = ElevatedButton(
-                            //   onPressed: () {
-                            //     context.push('/LoginScreen');
-                            //   },
-                            //   child: Text("Log In"),
-                            // );}
-                          
-
-                          // if (state is User_Registration_Failure) {
-                          //   return const Text("The registration is not done");
-                          // }
+                            
                           if (state is User_Registration_Success) {
                             return buttonChild = ElevatedButton(
                               onPressed: () {

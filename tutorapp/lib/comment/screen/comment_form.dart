@@ -1,13 +1,13 @@
 import 'dart:core';
-//import 'dart:ffi';
+
 import 'package:tutorapp/comment/BLoC/comment_bloc.dart';
 import 'package:comment_box/comment/comment.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-// <<<<<<< HEAD
+
 import 'package:tutorapp/comment/BLoC/comment_bloc.dart';
-// import '../Bloc/comment_bloc.dart';
+
 
 
 
@@ -127,10 +127,6 @@ class _Comment_formState extends State<Comment_form> {
          ) 
          );
           } } 
-
-
-
-// import '../Bloc/comment_bloc.dart';
 
 
 class Comment_form1  extends StatefulWidget {

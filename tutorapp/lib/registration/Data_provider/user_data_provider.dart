@@ -7,7 +7,7 @@ import 'package:tutorapp/tutorials/Model/tutorial_model.dart';
 import '../registration.dart';
 
 class UserDataProvider {
-  static const String _baseUrl = "http://10.0.2.2:8080/api/v1/auth";
+  static const String _baseUrl = "http://10.0.2.2:8080/api/v1/user";
 
   Future<User> create(User user) async {
     final http.Response response = await http.post(Uri.parse(_baseUrl),

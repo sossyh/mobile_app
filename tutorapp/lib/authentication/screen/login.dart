@@ -76,13 +76,9 @@ class LoginScreen extends StatelessWidget {
                     child: Text("Log In"),
                   );
                   if (state is LogingIn) {
-                    //
-                    // buttonChild = ElevatedButton(
-                    //   onPressed: () {
+                    
                     context.push('/category');
-                    //   },
-                    //   child: Text("Log In"),
-                    // );
+                     
                   }
 
                   if (state is LoginSuccessful) {

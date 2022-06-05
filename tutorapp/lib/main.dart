@@ -1,6 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:tutorapp/authentication/authentication.dart';
+import 'package:tutorapp/tutorials/screen/Admin.dart';
+import 'package:tutorapp/tutorials/screen/TutorPage.dart';
 import 'package:tutorapp/tutorials/tutorials.dart';
 import 'package:tutorapp/comment/comment.dart';
 import 'package:tutorapp/registration/registration.dart';
@@ -12,28 +14,17 @@ void main() {
   TutorialRepositoy? tutorialRepository;
   tutorialRepository?.create(Tutorial(id: 1, code: "123", title: "mobileapp"));
 
-  runApp(TutorApp()
-      // MultiBlocProvider(
-      //   providers: [
-      //     BlocProvider<AuthBloc>(create: (BuildContext context) => AuthBloc()),
-      //     BlocProvider<RegistrationBloc>(
-      //         create: (BuildContext context) => RegistrationBloc()),
-      //     //BlocProvider<CommentBloc>(create: (BuildContext context) => CommentBloc()),
-      //     // BlocProvider<TutorialBloc>(
-      //     //   create: (BuildContext context) =>
-      //     //       TutorialBloc(tutorialRepository: tutorialRepository),
-      //     // )
-      //   ],
-      //   child: TutorApp(),
-      // ),
-      );
+  runApp(TutorApp());
 }
 
 class TutorApp extends StatelessWidget {
   late final TutorialRepositoy tutorialRepositoy;
   late final Tutorial tutorial;
+  late RouteSettings settings;
 
   Widget build(BuildContext context) {
+      final TutorialArgument args=settings.arguments as TutorialArgument;
+
     final GoRouter _router = GoRouter(
       initialLocation: '/LoginScreen',
       routes: <GoRoute>[
@@ -60,6 +51,20 @@ class TutorApp extends StatelessWidget {
                 )
             //Tutorial_description(tutorial: tutorial),
             ),
+        GoRoute(
+          path: '/Admin',
+          builder: (BuildContext context, GoRouterState state) =>
+              AddUpdateTutorial(args: args),
+        ),
+        GoRoute(
+          path: '/TutorPage',
+          builder: (BuildContext context, GoRouterState state) => TutorPage(),
+        ),
+        GoRoute(
+          path: '/comment_form',
+          builder: (BuildContext context, GoRouterState state) =>
+              Comment_form(),
+        ),
       ],
     );
 

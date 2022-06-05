@@ -9,12 +9,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../tutorials.dart';
 import 'package:go_router/go_router.dart';
 
-// import '../blocs/course_bloc.dart';
-// import '../blocs/course_event.dart';
-// import '../models/course.dart';
 
 class AddUpdateTutorial extends StatefulWidget {
-  static const routeName = 'tutorialAddUpdate';
+  static const routeName = 'AddUpdateTutorial';
   final TutorialArgument args;
 
   const AddUpdateTutorial({Key? key, required this.args}) : super(key: key);
@@ -70,24 +67,6 @@ class _AddUpdateTutorialState extends State<AddUpdateTutorial> {
                   onSaved: (value) {
                     _tutorial["title"] = value;
                   }),
-              // TextFormField(
-              //     initialValue: widget.args.edit
-              //         ? widget.args.course?.ects.toString()
-              //         : '',
-              //     validator: (value) {
-              //       if (value != null && value.isEmpty) {
-              //         return 'Please enter course ects';
-              //       }
-              //       return null;
-              //     },
-              // decoration: const InputDecoration(labelText: 'Course ECTS'),
-              // onSaved: (value) {
-              //   setState(() {
-              //     if (value != null) {
-              //       _course["ects"] = int.parse(value);
-              //     }
-              //   });
-              // }),
               TextFormField(
                   initialValue:
                       widget.args.edit ? widget.args.tutorial?.description : '',
